@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#353535</color>
+    <color name="colorPrimaryDark">#353535</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--MAIN TITLE-->
+    <color name="mainTitleSolid">#73000000</color>
+    <color name="mainTitleText">#ffffff</color>
+    <color name="mainTitleStroke">#ffffff</color>
+
+    <!--BUTTONS-->
+    <color name="btnUncheckedSolid">#ffffff</color>
+    <color name="btnUncheckedText">#000000</color>
+    <color name="btnHoveredSolid">#73000000</color>
+    <color name="btnHoveredText">#ffffff</color>
+    <color name="btnHoveredStroke">#ffffff</color>
+</resources>

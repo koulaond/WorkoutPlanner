@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WorkoutPlanner</string>
+    <string name="screen_welcome_title">WORKOUT PLANNER</string>
+    <string name="screen_welcome_subtitle">BUILD YOUR OWN TRAININGS</string>
+
+    <!--BUTTONS-->
+    <string name="screen_welcome_btn_trainings">TRAINING PLANS</string>
+    <string name="screen_welcome_btn_workouts">WORKOUTS</string>
+    <string name="screen_welcome_btn_exercises">EXERCISES</string>
+
+    <!--CONTENT DESCRIPTIONS-->
+    <string name="screen_welcome_background_cd">Welcome screen background</string>
+</resources>
