@@ -8,6 +8,15 @@
     <string name="screen_welcome_btn_workouts">WORKOUTS</string>
     <string name="screen_welcome_btn_exercises">EXERCISES</string>
 
+    <string name="screen_trainings_btn_create">CREATE NEW TRAINING</string>
+    <string name="screen_trainings_btn_open">OPEN TRAINING</string>
+
+    <string name="screen_workouts_btn_create">CREATE NEW WORKOUT</string>
+    <string name="screen_workouts_btn_open">OPEN WORKOUT</string>
+
+    <string name="screen_exercises_btn_create">CREATE NEW EXERCISE</string>
+    <string name="screen_exercises_btn_open">OPEN EXERCISE</string>
+
     <!--CONTENT DESCRIPTIONS-->
     <string name="screen_welcome_background_cd">Welcome screen background</string>
 </resources>

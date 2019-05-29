@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="appLabel">
+        <item name="android:fontFamily">@font/armata</item>
+        <item name="android:text">@string/screen_welcome_title</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/mainTitleText</item>
+        <item name="android:background">@drawable/main_label</item>
+        <item name="android:layout_marginBottom">60dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
 </resources>

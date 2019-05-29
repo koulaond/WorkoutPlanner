@@ -11,27 +11,31 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:id="@+id/btnTrainingPlans"
-            android:layout_marginTop="200dp"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/txtMainTitle"
-            android:fontFamily="@font/armata" android:textSize="20sp" android:background="@drawable/btn_toggle"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"
+            android:background="@drawable/btn_toggle" android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" app:layout_constraintHorizontal_bias="0.0"
+            android:gravity="center" app:layout_constraintTop_toTopOf="@+id/guidelineMain"/>
     <Button
             android:text="@string/screen_welcome_btn_workouts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnWorkouts" app:layout_constraintEnd_toEndOf="@+id/btnTrainingPlans"
             app:layout_constraintStart_toStartOf="@+id/btnTrainingPlans" app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="48dp" app:layout_constraintTop_toBottomOf="@+id/btnTrainingPlans"
-            android:fontFamily="@font/armata" android:textSize="20sp" android:background="@drawable/btn_toggle"/>
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/btnTrainingPlans"
+            android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"
+            android:background="@drawable/btn_toggle" android:gravity="center"/>
     <Button
             android:text="@string/screen_welcome_btn_exercises"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnExercises" app:layout_constraintStart_toStartOf="@+id/btnWorkouts"
             app:layout_constraintEnd_toEndOf="@+id/btnWorkouts" app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="48dp" app:layout_constraintTop_toBottomOf="@+id/btnWorkouts"
-            android:fontFamily="@font/armata" android:textSize="20sp" android:background="@drawable/btn_toggle"/>
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/btnWorkouts"
+            android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"
+            android:background="@drawable/btn_toggle" android:gravity="center"/>
     <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp" app:srcCompat="@drawable/background_welcome2"
@@ -44,22 +48,25 @@
             android:background="@drawable/background_welcome2"/>
     <TextView
             android:text="@string/screen_welcome_title"
-            android:layout_width="385dp"
-            android:layout_height="55dp"
             android:id="@+id/txtMainTitle"
             android:fontFamily="@font/armata"
-            android:textSize="36sp" android:textColor="@color/mainTitleText" android:textAlignment="center"
+            android:textColor="@color/mainTitleText"
             android:layout_marginTop="60dp" app:layout_constraintTop_toTopOf="@+id/image_welcome"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/main_label"/>
+            android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/main_label" android:gravity="center_vertical" style="@style/appLabel"
+            android:textSize="36sp"/>
     <TextView
             android:text="@string/screen_welcome_subtitle"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:id="@+id/textView2" android:textColor="#FFFFFF"
+            android:id="@+id/txtSubLabel" android:textColor="@color/labelText"
             android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/txtMainTitle"
             app:layout_constraintStart_toStartOf="@+id/txtMainTitle"
             app:layout_constraintEnd_toEndOf="@+id/txtMainTitle" android:textAlignment="center"
             android:textSize="18sp" android:fontFamily="@font/armata" app:layout_constraintHorizontal_bias="0.0"/>
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="362dp" android:id="@+id/guidelineMain"/>
 </android.support.constraint.ConstraintLayout>

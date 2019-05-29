@@ -15,4 +15,5 @@
     <color name="btnHoveredSolid">#73000000</color>
     <color name="btnHoveredText">#ffffff</color>
     <color name="btnHoveredStroke">#ffffff</color>
+    <color name="labelText">#FFFFFF</color>
 </resources>
