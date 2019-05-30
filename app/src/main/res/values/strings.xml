@@ -2,6 +2,7 @@
     <string name="app_name">WorkoutPlanner</string>
     <string name="screen_welcome_title">WORKOUT PLANNER</string>
     <string name="screen_welcome_subtitle">BUILD YOUR OWN TRAININGS</string>
+    <string name="screen_welcome_label_menu">MAIN MENU</string>
 
     <!--BUTTONS-->
     <string name="screen_welcome_btn_trainings">TRAINING PLANS</string>

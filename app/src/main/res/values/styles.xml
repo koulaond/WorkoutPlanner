@@ -22,4 +22,25 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <style name="appSubLabel">
+        <item name="android:fontFamily">@font/armata</item>
+        <item name="android:text">@string/screen_welcome_subtitle</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textColor">@color/labelText</item>
+    </style>
+
+    <style name="menuLabel">
+        <item name="android:fontFamily">@font/armata</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/labelText</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="appButton">
+        <item name="android:fontFamily">@font/droid_sans_bold</item>
+        <item name="android:background">@drawable/button_unchecked</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
