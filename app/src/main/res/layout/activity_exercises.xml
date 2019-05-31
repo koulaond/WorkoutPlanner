@@ -7,4 +7,55 @@
         android:layout_height="match_parent"
         tools:context=".ExercisesActivity">
 
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:srcCompat="@drawable/background_exercises"
+            android:id="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:scaleType="centerCrop"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/txtMainTitleExercises" style="@style/appLabel"
+            android:layout_marginTop="56dp" app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.486"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/txtSubLabelExercises"
+            app:layout_constraintTop_toBottomOf="@+id/txtMainTitleExercises"
+            app:layout_constraintStart_toStartOf="@+id/txtMainTitleExercises"
+            app:layout_constraintEnd_toEndOf="@+id/txtMainTitleExercises" style="@style/appSubLabel"
+            android:layout_marginTop="16dp"/>
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="362dp" android:id="@+id/guideline"/>
+    <TextView
+            android:text="@string/screen_exercises_label_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/exercisesMenuLabel" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/menuLabel"/>
+    <Button
+            android:text="@string/screen_exercises_btn_create"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3" android:background="@drawable/btn_toggle"
+            android:layout_marginStart="32dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="@+id/guideline"
+            android:layout_marginEnd="32dp" app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"/>
+    <Button
+            android:text="@string/screen_exercises_btn_open"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4" android:background="@drawable/btn_toggle"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintStart_toStartOf="@+id/button3" app:layout_constraintEnd_toEndOf="@+id/button3"
+            android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"/>
 </android.support.constraint.ConstraintLayout>

@@ -51,7 +51,7 @@
             android:id="@+id/txtMainTitle"
             android:fontFamily="@font/armata"
             android:textColor="@color/mainTitleText"
-            android:layout_marginTop="60dp" app:layout_constraintTop_toTopOf="@+id/image_welcome"
+            android:layout_marginTop="56dp" app:layout_constraintTop_toTopOf="@+id/image_welcome"
             android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/main_label" android:gravity="center_vertical" style="@style/appLabel"

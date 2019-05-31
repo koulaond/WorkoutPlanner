@@ -3,6 +3,9 @@
     <string name="screen_welcome_title">WORKOUT PLANNER</string>
     <string name="screen_welcome_subtitle">BUILD YOUR OWN TRAININGS</string>
     <string name="screen_welcome_label_menu">MAIN MENU</string>
+    <string name="screen_trainings_label_menu">TRAININGS</string>
+    <string name="screen_workouts_label_menu">WORKOUTS</string>
+    <string name="screen_exercises_label_menu">EXERCISES</string>
 
     <!--BUTTONS-->
     <string name="screen_welcome_btn_trainings">TRAINING PLANS</string>
@@ -19,5 +22,5 @@
     <string name="screen_exercises_btn_open">OPEN EXERCISE</string>
 
     <!--CONTENT DESCRIPTIONS-->
-    <string name="screen_welcome_background_cd">Welcome screen background</string>
+    <string name="screen_welcome_background_cd">background image</string>
 </resources>

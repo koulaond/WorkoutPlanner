@@ -10,16 +10,17 @@
     <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp" app:srcCompat="@drawable/background_plans"
-            android:id="@+id/imageView"
+            android:id="@+id/trainingsBackground"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" android:scaleType="centerCrop"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"
+            android:contentDescription="@string/screen_welcome_background_cd"/>
     <TextView
-            android:text="@string/screen_welcome_btn_exercises"
+            android:text="@string/screen_trainings_label_menu"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:id="@+id/textView" android:textColor="@color/labelText"
+            android:id="@+id/exercisesMenuLabel" android:textColor="@color/labelText"
             android:fontFamily="@font/armata" android:textAlignment="center" android:gravity="center"
             android:textSize="24sp"
             style="@style/menuLabel"
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnCreateTraining"
             android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@+id/trainingsBackground" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp" android:background="@drawable/button_unchecked"
             app:layout_constraintTop_toTopOf="@+id/guidelineTrainings" android:textSize="18sp"
@@ -55,7 +56,7 @@
             android:id="@+id/txtMainTitleTrainings" style="@style/appLabel"
             android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/trainingsBackground"
             android:layout_marginTop="56dp" android:gravity="center_vertical"
             app:layout_constraintHorizontal_bias="0.0"/>
     <TextView
