@@ -11,9 +11,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Init listeners for each button
         btnTrainingPlans.setOnClickListener {
-            val trainingsIntent = Intent(this, TrainingsActivity::class.java)
+            var trainingsIntent = Intent(this, TrainingsActivity::class.java)
             startActivity(trainingsIntent)
         }
+        btnWorkouts.setOnClickListener {
+            var workoutsIntent = Intent(this, WorkoutsActivity::class.java)
+            startActivity(workoutsIntent)
+        }
+        btnExercises.setOnClickListener {
+            var exercisesIntent = Intent(this, ExercisesActivity::class.java)
+            startActivity(exercisesIntent)
+        }
     }
+
 }

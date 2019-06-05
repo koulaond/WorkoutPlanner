@@ -12,7 +12,7 @@
     <!--BUTTONS-->
     <color name="btnUncheckedSolid">#ffffff</color>
     <color name="btnUncheckedText">#000000</color>
-    <color name="btnHoveredSolid">#73000000</color>
+    <color name="btnHoveredSolid">#73ffffff</color>
     <color name="btnHoveredText">#ffffff</color>
     <color name="btnHoveredStroke">#ffffff</color>
     <color name="labelText">#FFFFFF</color>

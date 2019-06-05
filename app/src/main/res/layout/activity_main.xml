@@ -8,7 +8,6 @@
         tools:context=".MainActivity">
     <Button
             android:text="@string/screen_welcome_btn_trainings"
-            android:layout_width="0dp"
             android:layout_height="48dp"
             android:id="@+id/btnTrainingPlans"
             android:layout_marginTop="16dp"
@@ -17,27 +16,25 @@
             android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"
             android:background="@drawable/btn_toggle" android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp" app:layout_constraintHorizontal_bias="0.0"
-            android:gravity="center" app:layout_constraintTop_toTopOf="@+id/guidelineMain"/>
+            android:gravity="center" app:layout_constraintTop_toTopOf="@+id/guidelineMain"
+            android:layout_width="0dp"/>
     <Button
             android:text="@string/screen_welcome_btn_workouts"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnWorkouts" app:layout_constraintEnd_toEndOf="@+id/btnTrainingPlans"
             app:layout_constraintStart_toStartOf="@+id/btnTrainingPlans" app:layout_constraintHorizontal_bias="0.0"
             android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/btnTrainingPlans"
             android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"
-            android:background="@drawable/btn_toggle" android:gravity="center"/>
+            android:background="@drawable/btn_toggle" android:gravity="center" android:layout_width="0dp"/>
     <Button
             android:text="@string/screen_welcome_btn_exercises"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnExercises" app:layout_constraintStart_toStartOf="@+id/btnWorkouts"
             app:layout_constraintEnd_toEndOf="@+id/btnWorkouts" app:layout_constraintHorizontal_bias="0.0"
             android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/btnWorkouts"
             android:fontFamily="@font/droid_sans_bold" android:textSize="18sp"
-            android:background="@drawable/btn_toggle" android:gravity="center"/>
+            android:background="@drawable/btn_toggle" android:gravity="center" android:layout_width="0dp"/>
     <ImageView
-            android:layout_width="0dp"
             android:layout_height="0dp" app:srcCompat="@drawable/background_welcome2"
             android:id="@+id/image_welcome"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:scaleType="centerCrop" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.0" android:contentDescription="@string/screen_welcome_background_cd"
-            android:background="@drawable/background_welcome2"/>
+            android:background="@drawable/background_welcome2" android:layout_width="0dp"/>
     <TextView
             android:text="@string/screen_welcome_title"
             android:id="@+id/txtMainTitle"
@@ -55,7 +52,7 @@
             android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/main_label" android:gravity="center_vertical" style="@style/appLabel"
-            android:textSize="36sp"/>
+            android:textSize="36sp" android:layout_width="0dp"/>
     <TextView
             android:text="@string/screen_welcome_subtitle"
             android:layout_width="0dp"
