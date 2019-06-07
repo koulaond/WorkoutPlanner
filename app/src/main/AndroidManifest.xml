@@ -9,14 +9,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ExercisesActivity"
-                  android:parentActivityName=".MainActivity">
+        <activity android:name=".exercise.SelectTypeActivity">
         </activity>
-        <activity android:name=".WorkoutsActivity"
-                  android:parentActivityName=".MainActivity">
+        <activity android:name=".BaseActivity">
         </activity>
-        <activity android:name=".TrainingsActivity"
-                    android:parentActivityName=".MainActivity">
+        <activity
+                android:name=".ExercisesActivity"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+                android:name=".WorkoutsActivity"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+                android:name=".TrainingsActivity"
+                android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

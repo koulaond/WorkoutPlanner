@@ -23,4 +23,10 @@
 
     <!--CONTENT DESCRIPTIONS-->
     <string name="screen_welcome_background_cd">background image</string>
+
+    <!-- Exercise specific-->
+    <string name="exercise_screen_label_create">CREATE EXERCISE</string>
+
+    <string name="exercise_screen_select_type_num">1</string>
+    <string name="exercise_screen_select_type_label">SELECT TYPE</string>
 </resources>

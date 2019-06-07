@@ -35,7 +35,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="@+id/trainingsBackground" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp" android:background="@drawable/button_unchecked"
+            android:layout_marginEnd="32dp" android:background="@drawable/btn_toggle"
             app:layout_constraintTop_toTopOf="@+id/guidelineTrainings" android:textSize="18sp"
             android:fontFamily="@font/droid_sans_bold"/>
     <Button
