@@ -2,4 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_graph"
-/>
+            app:startDestination="@+id/selectTypeFragment">
+    <fragment android:id="@+id/selectTypeFragment" android:name="com.example.workoutplanner.SelectTypeFragment"
+              android:label="fragment_select_type" tools:layout="@layout/fragment_select_type">
+        <action android:id="@+id/action_to_basic_info"
+                app:destination="@id/standardSelectTemplateFragment"/>
+    </fragment>
+    <fragment android:id="@+id/standardSelectTemplateFragment"
+              android:name="com.example.workoutplanner.StandardSelectTemplateFragment"
+              android:label="fragment_standard_select_template"
+              tools:layout="@layout/fragment_standard_select_template"/>
+</navigation>

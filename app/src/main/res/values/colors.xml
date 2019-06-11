@@ -23,4 +23,6 @@
     <color name="btnSmallUncheckedStroke">#ffffff</color>
 
     <color name="labelText">#FFFFFF</color>
+
+    <color name="inputFieldWhite">#FFFFFF</color>
 </resources>
