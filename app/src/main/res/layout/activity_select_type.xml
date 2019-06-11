@@ -33,8 +33,9 @@
             tools:text="@string/exercise_screen_select_type_num" style="@style/wizard_number"
             app:layout_constraintTop_toBottomOf="@+id/txtSubLabelExerciseCreate"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="72dp"
-            app:layout_constraintHorizontal_bias="0.489"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="52dp"
+            app:layout_constraintHorizontal_bias="0.488" android:textSize="96sp"
+            android:fontFamily="@font/droid_sans_bold"/>
     <TextView
             android:text="@string/exercise_screen_select_type_label"
             android:layout_width="wrap_content"
@@ -44,4 +45,63 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" style="@style/wizard_label"
             app:layout_constraintHorizontal_bias="0.495"/>
+    <Button
+            android:text="@string/screen_exercises_create_standard_btn"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStandard" style="@style/appButtonSmall"
+            android:layout_marginTop="64dp" app:layout_constraintTop_toTopOf="@+id/guideline2"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
+    <Button
+            android:text="@string/screen_exercises_create_cardio_btn"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCardio"
+            android:background="@drawable/button_small_unchecked" android:layout_marginTop="64dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline3" style="@style/appButtonSmall"/>
+    <Button
+            android:text="@string/screen_exercises_create_circle_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCircle"
+            android:background="@drawable/button_small_unchecked" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnStandard"
+            app:layout_constraintEnd_toEndOf="@+id/btnStandard"
+            app:layout_constraintStart_toStartOf="@+id/btnStandard" style="@style/appButtonSmall"/>
+    <Button
+            android:text="@string/screen_exercises_create_tabata_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnTabata"
+            android:background="@drawable/button_small_unchecked" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnCardio"
+            app:layout_constraintStart_toStartOf="@+id/btnCardio" app:layout_constraintEnd_toEndOf="@+id/btnCardio"
+            style="@style/appButtonSmall"/>
+    <Button
+            android:text="@string/screen_exercises_create_superset_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSuperset"
+            android:background="@drawable/button_small_unchecked" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnCircle"
+            app:layout_constraintStart_toStartOf="@+id/btnCircle" app:layout_constraintEnd_toEndOf="@+id/btnCircle"
+            style="@style/appButtonSmall"/>
+    <Button
+            android:text="@string/screen_exercises_create_combined_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCombined"
+            android:background="@drawable/button_small_unchecked" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnTabata"
+            app:layout_constraintStart_toStartOf="@+id/btnTabata" app:layout_constraintEnd_toEndOf="@+id/btnTabata"
+            style="@style/appButtonSmall"/>
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="362dp" android:id="@+id/guideline2"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="205dp" android:id="@+id/guideline3"/>
 </android.support.constraint.ConstraintLayout>

@@ -15,5 +15,12 @@
     <color name="btnHoveredSolid">#73ffffff</color>
     <color name="btnHoveredText">#ffffff</color>
     <color name="btnHoveredStroke">#ffffff</color>
+
+    <color name="btnSmallUncheckedSolid">#ffffff</color>
+    <color name="btnSmallUncheckedText">#ffffff</color>
+    <color name="btnSmallHoveredSolid">#73ffffff</color>
+    <color name="btnSmallHoveredText">#ffffff</color>
+    <color name="btnSmallUncheckedStroke">#ffffff</color>
+
     <color name="labelText">#FFFFFF</color>
 </resources>

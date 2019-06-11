@@ -45,6 +45,13 @@
         <item name="android:layout_width">wrap_content</item>
     </style>
 
+    <style name="appButtonSmall">
+        <item name="android:fontFamily">@font/droid_sans_bold</item>
+        <item name="android:background">@drawable/button_small_unchecked</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
     <style name="wizard_number">
         <item name="android:fontFamily">@font/armata</item>
         <item name="android:textSize">64sp</item>

@@ -21,6 +21,13 @@
     <string name="screen_exercises_btn_create">CREATE NEW EXERCISE</string>
     <string name="screen_exercises_btn_open">OPEN EXERCISE</string>
 
+    <string name="screen_exercises_create_standard_btn">STANDARD</string>
+    <string name="screen_exercises_create_superset_btn">SUPERSET</string>
+    <string name="screen_exercises_create_cardio_btn">CARDIO / TIMER</string>
+    <string name="screen_exercises_create_circle_btn">CIRCLE</string>
+    <string name="screen_exercises_create_tabata_btn">TABATA</string>
+    <string name="screen_exercises_create_combined_btn">COMBINED</string>
+
     <!--CONTENT DESCRIPTIONS-->
     <string name="screen_welcome_background_cd">background image</string>
 
@@ -29,4 +36,7 @@
 
     <string name="exercise_screen_select_type_num">1</string>
     <string name="exercise_screen_select_type_label">SELECT TYPE</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
