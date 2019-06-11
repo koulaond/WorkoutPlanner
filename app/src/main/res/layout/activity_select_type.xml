@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -96,12 +96,12 @@
             app:layout_constraintTop_toBottomOf="@+id/btnTabata"
             app:layout_constraintStart_toStartOf="@+id/btnTabata" app:layout_constraintEnd_toEndOf="@+id/btnTabata"
             style="@style/appButtonSmall"/>
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:layout_constraintGuide_begin="362dp" android:id="@+id/guideline2"/>
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:layout_constraintGuide_begin="205dp" android:id="@+id/guideline3"/>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
