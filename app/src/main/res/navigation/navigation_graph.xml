@@ -7,9 +7,24 @@
               android:label="fragment_select_type" tools:layout="@layout/fragment_select_type">
         <action android:id="@+id/action_to_basic_info"
                 app:destination="@id/standardSelectTemplateFragment"/>
+        <action android:id="@+id/action_selectTypeFragment_to_cardioFragment" app:destination="@id/cardioFragment"/>
+        <action android:id="@+id/action_selectTypeFragment_to_circleFragment" app:destination="@id/circleFragment"/>
+        <action android:id="@+id/action_selectTypeFragment_to_tabataFragment" app:destination="@id/tabataFragment"/>
+        <action android:id="@+id/action_selectTypeFragment_to_supersetFragment" app:destination="@id/supersetFragment"/>
+        <action android:id="@+id/action_selectTypeFragment_to_combinedFragment" app:destination="@id/combinedFragment"/>
     </fragment>
     <fragment android:id="@+id/standardSelectTemplateFragment"
               android:name="com.example.workoutplanner.StandardSelectTemplateFragment"
               android:label="fragment_standard_select_template"
               tools:layout="@layout/fragment_standard_select_template"/>
+    <fragment android:id="@+id/cardioFragment" android:name="com.example.workoutplanner.CardioFragment"
+              android:label="fragment_cardio" tools:layout="@layout/fragment_cardio"/>
+    <fragment android:id="@+id/circleFragment" android:name="com.example.workoutplanner.CircleFragment"
+              android:label="fragment_circle" tools:layout="@layout/fragment_circle"/>
+    <fragment android:id="@+id/tabataFragment" android:name="com.example.workoutplanner.TabataFragment"
+              android:label="fragment_tabata" tools:layout="@layout/fragment_tabata"/>
+    <fragment android:id="@+id/supersetFragment" android:name="com.example.workoutplanner.SupersetFragment"
+              android:label="fragment_superset" tools:layout="@layout/fragment_superset"/>
+    <fragment android:id="@+id/combinedFragment" android:name="com.example.workoutplanner.CombinedFragment"
+              android:label="fragment_combined" tools:layout="@layout/fragment_combined"/>
 </navigation>
