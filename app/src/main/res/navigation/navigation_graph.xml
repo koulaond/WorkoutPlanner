@@ -16,7 +16,10 @@
     <fragment android:id="@+id/standardSelectTemplateFragment"
               android:name="com.example.workoutplanner.StandardSelectTemplateFragment"
               android:label="fragment_standard_select_template"
-              tools:layout="@layout/fragment_standard_select_template"/>
+              tools:layout="@layout/fragment_standard_select_template">
+        <action android:id="@+id/action_to_reps"
+                app:destination="@id/standardRepsFragment"/>
+    </fragment>
     <fragment android:id="@+id/cardioFragment" android:name="com.example.workoutplanner.CardioFragment"
               android:label="fragment_cardio" tools:layout="@layout/fragment_cardio"/>
     <fragment android:id="@+id/circleFragment" android:name="com.example.workoutplanner.CircleFragment"
@@ -27,4 +30,9 @@
               android:label="fragment_superset" tools:layout="@layout/fragment_superset"/>
     <fragment android:id="@+id/combinedFragment" android:name="com.example.workoutplanner.CombinedFragment"
               android:label="fragment_combined" tools:layout="@layout/fragment_combined"/>
+    <fragment android:id="@+id/standardRepsFragment" android:name="com.example.workoutplanner.StandardRepsFragment"
+              android:label="fragment_standard_reps" tools:layout="@layout/fragment_standard_reps">
+        <argument android:name="template" app:argType="string"/>
+        <argument android:name="bodyPart" app:argType="string"/>
+    </fragment>
 </navigation>

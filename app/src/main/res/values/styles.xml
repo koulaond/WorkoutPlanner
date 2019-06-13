@@ -79,4 +79,8 @@
         <item name="android:backgroundTint">@color/inputFieldWhite</item>
         <item name="android:hint">@string/placeholder_exercise_name</item>
     </style>
+    <style name="spinner_theme">>
+        <item name="colorAccent">@color/inputFieldWhite</item>
+        <item name="colorControlNormal">@color/inputFieldWhite</item>
+    </style>
 </resources>

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">WorkoutPlanner</string>
+    <string name="btn_next">NEXT</string>
     <string name="screen_welcome_title">WORKOUT PLANNER</string>
     <string name="screen_welcome_subtitle">BUILD YOUR OWN TRAININGS</string>
     <string name="screen_welcome_label_menu">MAIN MENU</string>
@@ -40,13 +41,16 @@
     <string name="exercise_screen_standard_basic_num">2</string>
     <string name="exercise_screen_standard_basic_label">FILL BASIC INFO</string>
 
+    <string name="exercise_screen_standard_reps_num">3</string>
+    <string name="exercise_screen_standard_reps_label">DEFINE SERIES AND REPS</string>
+
     <!-- PLACEHOLDERS -->
     <string name="placeholder_exercise_name">EXERCISE NAME</string>
 
 
     <!-- EXERCISE TEMPLATES -->
     <string-array name="exerciseTemplates">
-        <item>NO TEMPLATE</item>
+        <item>SELECT TEMPLATE</item>
         <item>2x6 (2 series, 6 reps per series)</item>
         <item>2x8 (2 series, 8 reps per series)</item>
         <item>2x10 (2 series, 10 reps per series)</item>
@@ -59,6 +63,16 @@
         <item>4x8 (4 series, 8 reps per series)</item>
         <item>4x10 (4 series, 10 reps per series)</item>
         <item>4x12 (4 series, 12 reps per series)</item>
+    </string-array>
+
+    <!-- EXERCISE BODY PARTS -->
+    <string-array name="exerciseBodyParts">
+        <item>SELECT BODY PART</item>
+        <item>CHEST</item>
+        <item>SHOULDERS</item>
+        <item>BICEPS</item>
+        <item>TRICEPS</item>
+        <item>BACK</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

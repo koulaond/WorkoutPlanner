@@ -60,7 +60,7 @@
             android:textColor="#FFFFFF"
             style="@style/input_field_white"
             android:textColorHint="#FFFFFF"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,12 +69,32 @@
             android:labelFor="@id/txtExercisesSelectType"
             android:autofillHints="" android:textSize="20sp" android:fontFamily="@font/armata"/>
     <Spinner
-            android:layout_width="361dp"
-            android:layout_height="35dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:id="@+id/templateSpinner"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/editText"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/editText"
             app:layout_constraintStart_toStartOf="@+id/editText"
             app:layout_constraintEnd_toEndOf="@+id/editText"
-            android:background="@drawable/spinner_background"/>
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:theme="@style/spinner_theme"
+            android:backgroundTint="@color/inputFieldWhite"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/exerciseBodyPartSpinner" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/templateSpinner"
+            app:layout_constraintStart_toStartOf="@+id/templateSpinner"
+            app:layout_constraintEnd_toEndOf="@+id/templateSpinner"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:theme="@style/spinner_theme"
+            android:backgroundTint="@color/inputFieldWhite"/>
+    <Button
+            android:text="@string/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStandardBasicNext" style="@style/appButton"
+            app:layout_constraintStart_toStartOf="@+id/templateSpinner"
+            app:layout_constraintEnd_toEndOf="@+id/templateSpinner" android:textSize="18sp"
+            android:layout_marginBottom="24dp" app:layout_constraintBottom_toBottomOf="@+id/image_select_template"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
