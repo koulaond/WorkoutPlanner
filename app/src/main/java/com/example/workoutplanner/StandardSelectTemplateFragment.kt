@@ -5,40 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.navigation.findNavController
+import com.example.workoutplanner.listeners.AppSpinnerListener
 import kotlinx.android.synthetic.main.fragment_standard_select_template.*
 
-class StandardSelectTemplateFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class StandardSelectTemplateFragment : Fragment() {
 
-    val selectTemplateInit: String = "SELECT TEMPLATE"
-    val selectBodyPartInit: String = "SELECT BODY PART"
-
-    lateinit var templates: Array<String>
-    lateinit var bodyParts: Array<String>
-    var selectedTemplate: String = selectTemplateInit
-    var selectedBodyPart: String = selectBodyPartInit
-
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-
-    }
-
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-    }
+    lateinit var bodyPartsSpinnerListener: AppSpinnerListener
+    lateinit var templateSpinnerListener: AppSpinnerListener
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        templates = resources.getStringArray(R.array.exerciseTemplates)
-        bodyParts = resources.getStringArray(R.array.exerciseBodyParts)
+        val templates = resources.getStringArray(R.array.exerciseTemplates)
+        val bodyParts = resources.getStringArray(R.array.exerciseBodyParts)
+
+        this.templateSpinnerListener = AppSpinnerListener(templates, templates[0])
+        this.bodyPartsSpinnerListener = AppSpinnerListener(bodyParts, bodyParts[0])
         return inflater.inflate(R.layout.fragment_standard_select_template, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btnStandardBasicNext.setOnClickListener {
-            if (!(selectedBodyPart.equals(selectBodyPartInit) || selectedTemplate.equals(selectTemplateInit))) {
+            if (templateSpinnerListener.selectedItem.equals(templateSpinnerListener.emptyValue)) {
+                Toast.makeText(context, "Select template", Toast.LENGTH_SHORT).show()
+
+            } else if (bodyPartsSpinnerListener.selectedItem.equals(bodyPartsSpinnerListener.emptyValue)) {
+                Toast.makeText(context, "Select body part", Toast.LENGTH_SHORT).show()
+
+            } else {
                 it.findNavController().navigate(R.id.action_to_reps)
             }
         }
@@ -46,35 +42,25 @@ class StandardSelectTemplateFragment : Fragment(), AdapterView.OnItemSelectedLis
             val templateSpinner: Spinner = it.findViewById(R.id.templateSpinner)
             val bodyPartSpinner: Spinner = it.findViewById(R.id.exerciseBodyPartSpinner)
 
-            templateSpinner.onItemSelectedListener = this
-            bodyPartSpinner.onItemSelectedListener = this
+            templateSpinner.onItemSelectedListener = templateSpinnerListener
+            bodyPartSpinner.onItemSelectedListener = bodyPartsSpinnerListener
 
-            // Template spinner init
-
-            ArrayAdapter.createFromResource(
-                this.context!!,
-                R.array.exerciseTemplates,
-                R.layout.spinner_color_layout
-
-            ).also { adapter ->
-                adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
-                templateSpinner.adapter = adapter
-            }
-
-            // Body parts spinner init
-            ArrayAdapter.createFromResource(
-                this.context!!,
-                R.array.exerciseBodyParts,
-                R.layout.spinner_color_layout
-
-            ).also { adapter ->
-                adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
-                bodyPartSpinner.adapter = adapter
-            }
+            // Init spinners
+            initAdapterForSpinner(R.array.exerciseTemplates, templateSpinner)
+            initAdapterForSpinner(R.array.exerciseBodyParts, bodyPartSpinner)
         }
-
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private fun initAdapterForSpinner(arrayResource: Int, spinner: Spinner) {
+        ArrayAdapter.createFromResource(
+            this.context!!,
+            arrayResource,
+            R.layout.spinner_color_layout
 
+        ).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
+            spinner.adapter = adapter
+        }
+    }
 }
