@@ -1,6 +1,5 @@
 package com.example.workoutplanner
 
-import android.os.AsyncTask
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,15 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.navigation.findNavController
-import androidx.room.Room
-import com.example.workoutplanner.db.AbstractDatabase
-import com.example.workoutplanner.db.dao.async.InsertAsyncTask
-import com.example.workoutplanner.db.dao.TemplateDao
-import com.example.workoutplanner.domain.Template
 import com.example.workoutplanner.listeners.AppSpinnerListener
 import kotlinx.android.synthetic.main.fragment_standard_select_template.*
-import java.util.concurrent.Executor
-import java.util.concurrent.TimeUnit
 
 class StandardSelectTemplateFragment : Fragment() {
 
@@ -31,20 +23,6 @@ class StandardSelectTemplateFragment : Fragment() {
 
         this.templateSpinnerListener = AppSpinnerListener(templates, templates[0])
         this.bodyPartsSpinnerListener = AppSpinnerListener(bodyParts, bodyParts[0])
-
-        val db = context?.let {
-            Room.databaseBuilder(
-                it,
-                AbstractDatabase::class.java, "application.db"
-            ).build()
-        }
-        db?.let {
-            val allTemplates = TemplateDao.TemplateGetAsyncTask(it.templateDao()).get(3000, TimeUnit.MILLISECONDS)
-            if (allTemplates.isEmpty()) {
-                InsertAsyncTask<Template, TemplateDao>(it.templateDao())
-                    .execute(Template(0, 3, 4))
-            }
-        }
 
         return inflater.inflate(R.layout.fragment_standard_select_template, container, false)
     }
