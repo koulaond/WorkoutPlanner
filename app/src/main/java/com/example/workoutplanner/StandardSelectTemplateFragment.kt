@@ -8,16 +8,27 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.workoutplanner.listeners.AppSpinnerListener
+import com.example.workoutplanner.view.TemplateViewModel
 import kotlinx.android.synthetic.main.fragment_standard_select_template.*
+import java.util.function.Consumer
 
 class StandardSelectTemplateFragment : Fragment() {
+
+    companion object {
+        const val newWordActivityRequestCode = 1
+    }
 
     lateinit var bodyPartsSpinnerListener: AppSpinnerListener
     lateinit var templateSpinnerListener: AppSpinnerListener
 
+    lateinit var templateViewModel: TemplateViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        templateViewModel = ViewModelProviders.of(this).get(TemplateViewModel::class.java)
+
         val templates = resources.getStringArray(R.array.exerciseTemplates)
         val bodyParts = resources.getStringArray(R.array.exerciseBodyParts)
 
@@ -47,13 +58,14 @@ class StandardSelectTemplateFragment : Fragment() {
             bodyPartSpinner.onItemSelectedListener = bodyPartsSpinnerListener
 
             // Init spinners
-            initAdapterForSpinner(R.array.exerciseTemplates, templateSpinner)
-            initAdapterForSpinner(R.array.exerciseBodyParts, bodyPartSpinner)
+            templateViewModel.allTemplates.value?.map { template -> "${template.series}x${template.reps}" }
+                ?.let { data -> initAdapterForSpinner(R.array.exerciseTemplates, templateSpinner, data) }
         }
+        //initAdapterForSpinner(R.array.exerciseBodyParts, bodyPartSpinner)
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun initAdapterForSpinner(arrayResource: Int, spinner: Spinner) {
+    private fun initAdapterForSpinner(arrayResource: Int, spinner: Spinner, data: List<String>) {
         ArrayAdapter.createFromResource(
             this.context!!,
             arrayResource,
@@ -61,6 +73,7 @@ class StandardSelectTemplateFragment : Fragment() {
 
         ).also { adapter ->
             adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
+            adapter.addAll(data)
             spinner.adapter = adapter
         }
     }

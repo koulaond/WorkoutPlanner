@@ -3,6 +3,8 @@ package com.example.workoutplanner.view
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
+
 import com.example.workoutplanner.db.AbstractDatabase
 import com.example.workoutplanner.db.dao.TemplateDao
 import com.example.workoutplanner.db.repository.TemplateRepository
@@ -14,8 +16,12 @@ class TemplateViewModel(application: Application) : AndroidViewModel(application
     val allTemplates: LiveData<Array<Template>>
 
     init {
-        val templateDao: TemplateDao = AbstractDatabase.getDatabase(application.applicationContext).templateDao()
+        val templateDao: TemplateDao = AbstractDatabase.getDatabase(application.applicationContext, viewModelScope).templateDao()
         this.templateRepository = TemplateRepository(templateDao)
         allTemplates = templateRepository.allTemplates
+    }
+
+    fun insert(template: Template)  {
+        templateRepository.insert(template)
     }
 }
