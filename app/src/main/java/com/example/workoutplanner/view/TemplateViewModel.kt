@@ -16,7 +16,7 @@ class TemplateViewModel(application: Application) : AndroidViewModel(application
     val allTemplates: LiveData<Array<Template>>
 
     init {
-        val templateDao: TemplateDao = AbstractDatabase.getDatabase(application.applicationContext, viewModelScope).templateDao()
+        val templateDao: TemplateDao = AbstractDatabase.getDatabase(application, viewModelScope).templateDao()
         this.templateRepository = TemplateRepository(templateDao)
         allTemplates = templateRepository.allTemplates
     }

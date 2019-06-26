@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import com.example.workoutplanner.domain.Template
 import com.example.workoutplanner.listeners.AppSpinnerListener
 import com.example.workoutplanner.view.TemplateViewModel
 import kotlinx.android.synthetic.main.fragment_standard_select_template.*
-import java.util.function.Consumer
 
 class StandardSelectTemplateFragment : Fragment() {
 
@@ -58,23 +59,29 @@ class StandardSelectTemplateFragment : Fragment() {
             bodyPartSpinner.onItemSelectedListener = bodyPartsSpinnerListener
 
             // Init spinners
-            templateViewModel.allTemplates.value?.map { template -> "${template.series}x${template.reps}" }
-                ?.let { data -> initAdapterForSpinner(R.array.exerciseTemplates, templateSpinner, data) }
-        }
-        //initAdapterForSpinner(R.array.exerciseBodyParts, bodyPartSpinner)
-        super.onViewCreated(view, savedInstanceState)
-    }
+            templateViewModel.allTemplates.observe(this, Observer { templates ->
+                templates?.let { data -> initAdapterForSpinner(R.array.exerciseTemplates, templateSpinner, data) }
+            })
 
-    private fun initAdapterForSpinner(arrayResource: Int, spinner: Spinner, data: List<String>) {
-        ArrayAdapter.createFromResource(
-            this.context!!,
-            arrayResource,
-            R.layout.spinner_color_layout
-
-        ).also { adapter ->
-            adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
-            adapter.addAll(data)
-            spinner.adapter = adapter
+            super.onViewCreated(view, savedInstanceState)
         }
     }
+        fun initAdapterForSpinner(arrayResource: Int, spinner: Spinner, data: Array<Template>) {
+            var arrayAdapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item)
+            arrayAdapter.addAll(data.map {
+                template ->  "${template.series}x${template.reps}"
+            })
+//            ArrayAdapter.createFromResource(
+//                this.context!!,
+//                arrayResource,
+//                R.layout.spinner_color_layout
+//
+//            ).also { adapter ->
+//                adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
+//                data.forEach { item -> adapter.add("${item.series}x${item.reps}") }
+//                spinner.adapter = adapter
+//            }
+            spinner.adapter = arrayAdapter
+        }
+
 }

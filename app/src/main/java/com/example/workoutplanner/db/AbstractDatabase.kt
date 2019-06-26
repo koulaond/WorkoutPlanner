@@ -30,7 +30,9 @@ abstract class AbstractDatabase : RoomDatabase() {
                     context.applicationContext,
                     AbstractDatabase::class.java,
                     "Word_database"
-                ).addCallback(TemplateDatabaseCallback(scope))
+                )
+                    .fallbackToDestructiveMigration()
+                    .addCallback(TemplateDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 return instance
