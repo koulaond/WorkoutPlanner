@@ -67,20 +67,12 @@ class StandardSelectTemplateFragment : Fragment() {
         }
     }
         fun initAdapterForSpinner(arrayResource: Int, spinner: Spinner, data: Array<Template>) {
-            var arrayAdapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item)
+            var arrayAdapter = ArrayAdapter<Template>(context, R.layout.spinner_color_layout)
+            arrayAdapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
             arrayAdapter.addAll(data.map {
-                template ->  "${template.series}x${template.reps}"
+//                template ->  "${template.series}x${template.reps}"
+                template -> template
             })
-//            ArrayAdapter.createFromResource(
-//                this.context!!,
-//                arrayResource,
-//                R.layout.spinner_color_layout
-//
-//            ).also { adapter ->
-//                adapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
-//                data.forEach { item -> adapter.add("${item.series}x${item.reps}") }
-//                spinner.adapter = adapter
-//            }
             spinner.adapter = arrayAdapter
         }
 

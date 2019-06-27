@@ -25,4 +25,5 @@
     <color name="labelText">#FFFFFF</color>
 
     <color name="inputFieldWhite">#FFFFFF</color>
+    <color name="generalTransparent">#00FFFFFF</color>
 </resources>
