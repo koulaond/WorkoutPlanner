@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "template")
 data class Template(@PrimaryKey var id: Long, @ColumnInfo(name = "series") var series: Long, @ColumnInfo(name = "reps") var reps: Long){
     override fun toString(): String {
-        return "${series}x${reps}"
+        return "${series}x${reps} (${series} series, ${reps} reps per series)"
     }
 }

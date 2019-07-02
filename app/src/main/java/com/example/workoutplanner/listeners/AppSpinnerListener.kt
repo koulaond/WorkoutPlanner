@@ -3,13 +3,13 @@ package com.example.workoutplanner.listeners
 import android.view.View
 import android.widget.AdapterView
 
-class AppSpinnerListener : AdapterView.OnItemSelectedListener {
+class AppSpinnerListener<T> : AdapterView.OnItemSelectedListener {
 
-    var items: Array<String>
-    var selectedItem: String
-    var emptyValue: String
+    var items: Array<T>
+    var selectedItem: T
+    var emptyValue: T
 
-    constructor(items: Array<String>, emptyValue: String) {
+    constructor(items: Array<T>, emptyValue: T) {
         this.items = items
         this.selectedItem = items[0]
         this.emptyValue = emptyValue

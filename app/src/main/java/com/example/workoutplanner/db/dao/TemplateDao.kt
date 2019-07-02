@@ -11,6 +11,9 @@ interface TemplateDao : AbstractDao<Template> {
     @Query("select * from template")
     fun getAllTemplates(): LiveData<Array<Template>>
 
+    @Query(value = "select count(*) from template")
+    fun count(): Int
+
     @Query("DELETE FROM template")
     fun deleteAll()
 }

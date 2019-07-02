@@ -18,7 +18,7 @@ class TemplateViewModel(application: Application) : AndroidViewModel(application
     init {
         val templateDao: TemplateDao = AbstractDatabase.getDatabase(application, viewModelScope).templateDao()
         this.templateRepository = TemplateRepository(templateDao)
-        allTemplates = templateRepository.allTemplates
+        this.allTemplates = templateRepository.allTemplates
     }
 
     fun insert(template: Template)  {
