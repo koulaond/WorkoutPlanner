@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import com.example.workoutplanner.db.repository.ExerciseBodyPartRepository
 import com.example.workoutplanner.domain.ExerciseBodyType
 import com.example.workoutplanner.domain.Template
 import com.example.workoutplanner.listeners.AppSpinnerListener
@@ -25,9 +23,11 @@ class StandardSelectTemplateFragment : Fragment() {
         const val newWordActivityRequestCode = 1
     }
 
-
     lateinit var templateViewModel: TemplateViewModel
     lateinit var exerciseBodyPartViewModel: BodyPartViewModel
+
+    lateinit var templateSpinnerListener: AppSpinnerListener<Template>
+    lateinit var exerciseBodyTypeSpinnerListener: AppSpinnerListener<ExerciseBodyType>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val viewModelProvider = ViewModelProviders.of(this)
@@ -38,17 +38,16 @@ class StandardSelectTemplateFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        btnStandardBasicNext.setOnClickListener {
-            it.findNavController().navigate(R.id.action_to_reps)
-        }
-        view?.let {
-            val templateSpinner: Spinner = it.findViewById(R.id.templateSpinner)
-            val bodyPartSpinner: Spinner = it.findViewById(R.id.exerciseBodyPartSpinner)
+        val bodyPartSpinner: Spinner = view.findViewById(R.id.exerciseBodyPartSpinner)
+        val templateSpinner: Spinner = view.findViewById(R.id.templateSpinner)
 
+        view?.let {
 
             // Init spinners
             templateViewModel.allTemplates.observe(this, Observer { templates ->
                 templates?.let { data ->
+                    templateSpinnerListener = AppSpinnerListener(data)
+                    templateSpinner.onItemSelectedListener = templateSpinnerListener
                     var arrayAdapter = ArrayAdapter<Template>(context, R.layout.spinner_color_layout)
                     arrayAdapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
                     arrayAdapter.addAll(data.map { template -> template })
@@ -58,24 +57,26 @@ class StandardSelectTemplateFragment : Fragment() {
 
             exerciseBodyPartViewModel.allExerciseBodyTypes.observe(this, Observer { exerciseBodyTypes ->
                 exerciseBodyTypes?.let { data ->
+                    exerciseBodyTypeSpinnerListener = AppSpinnerListener(data)
+                    bodyPartSpinner.onItemSelectedListener = exerciseBodyTypeSpinnerListener
                     var arrayAdapter = ArrayAdapter<ExerciseBodyType>(context, R.layout.spinner_color_layout)
                     arrayAdapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
                     arrayAdapter.addAll(data.map { bodyType -> bodyType })
                     bodyPartSpinner.adapter = arrayAdapter
                 }
             })
+        }
+        btnStandardBasicNext.setOnClickListener {
+            var selectedTemplate = templateSpinnerListener.selectedItem
+            var selectedBodyType = exerciseBodyTypeSpinnerListener.selectedItem
+            var bundle: Bundle = Bundle()
 
-            super.onViewCreated(view, savedInstanceState)
+            bundle.putLong("series", selectedTemplate.series)
+            bundle.putLong("reps", selectedTemplate.reps)
+            bundle.putLong("bodyTypeId", selectedBodyType.id)
+
+            it.findNavController().navigate(R.id.action_to_reps, bundle)
+
         }
     }
-
-    fun initAdapterForSpinner(spinner: Spinner, data: Array<Template>) {
-        var arrayAdapter = ArrayAdapter<Template>(context, R.layout.spinner_color_layout)
-        arrayAdapter.setDropDownViewResource(R.layout.spiner_dropdown_layout)
-        arrayAdapter.addAll(data.map { template ->
-            template
-        })
-        spinner.adapter = arrayAdapter
-    }
-
 }
