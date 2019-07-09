@@ -32,7 +32,8 @@
               android:label="fragment_combined" tools:layout="@layout/fragment_combined"/>
     <fragment android:id="@+id/standardRepsFragment" android:name="com.example.workoutplanner.StandardRepsFragment"
               android:label="fragment_standard_reps" tools:layout="@layout/fragment_standard_reps">
-        <argument android:name="template" app:argType="string"/>
-        <argument android:name="bodyPart" app:argType="string"/>
+        <argument android:name="reps" app:argType="long" android:defaultValue="0L"/>
+        <argument android:name="series" app:argType="long" android:defaultValue="0L"/>
+        <argument android:name="bodyTypeId" app:argType="long"/>
     </fragment>
 </navigation>

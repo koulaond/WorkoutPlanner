@@ -29,6 +29,9 @@
     <string name="screen_exercises_create_tabata_btn">TABATA</string>
     <string name="screen_exercises_create_combined_btn">COMBINED</string>
 
+    <string name="screen_seriesandreps_series">SERIES:</string>
+    <string name="screen_seriesandreps_reps">REPS:</string>
+
     <!--CONTENT DESCRIPTIONS-->
     <string name="screen_welcome_background_cd">background image</string>
 
