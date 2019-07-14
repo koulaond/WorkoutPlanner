@@ -48,6 +48,7 @@ class ViewFactory {
             editText.width = widthInPixels
             editText.height = height
             editText.inputType = inputType
+            editText.tag = "REP_INPUT"
             return editText
         }
     }

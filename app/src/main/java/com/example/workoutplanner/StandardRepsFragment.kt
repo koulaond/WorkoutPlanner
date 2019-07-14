@@ -10,22 +10,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.workoutplanner.filters.EditTextNumberRestrictionFilter
 import com.example.workoutplanner.utils.ViewFactory.Companion.editText
 import com.example.workoutplanner.utils.ViewFactory.Companion.textView
 
 class StandardRepsFragment : Fragment() {
 
-    var reps: Long = 0
-    var series: Long = 0
-    var bodyTypeId: Long = 0
+    companion object {
+        private val REPS = "reps"
+        private val SERIES = "series"
+        private val BODY_TYPE_ID = "bodyTypeId"
+        private val INPUT_TEXT_SIZE = 24f
+        private val INPUT_SERIES_LABEL_WIDTH = 150
+        private val INPUT_REPS_LABEL_WIDTH = 175
+        private val INPUT_LABEL_HEIGHT = 90
+    }
+
+    var reps: Int = 0
+    var series: Int = 0
+    var bodyTypeId: Int = 0
 
     var rows: MutableList<LinearLayout> = ArrayList()
 
-    private val REPS = "reps"
 
-    private val SERIES = "series"
+    private val NUMBER_MIN = 1
+    private val NUMBER_SERIES_MAX = 30
+    private val NUMBER_REPS_MAX = 99
 
-    private val BODY_TYPE_ID = "bodyTypeId"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,24 +44,26 @@ class StandardRepsFragment : Fragment() {
     ): View? {
         arguments?.let {
 
-            reps = it.getLong(REPS)
-            series = it.getLong(SERIES)
-            bodyTypeId = it.getLong(BODY_TYPE_ID)
+            reps = it.getInt(REPS)
+            series = it.getInt(SERIES)
+            bodyTypeId = it.getInt(BODY_TYPE_ID)
         }
 
         val view: View = inflater.inflate(R.layout.fragment_standard_reps, container, false)
         view.let {
             it.findViewById<EditText>(R.id.series_reps_series_input)?.let {
                 it.setText(series.toString())
+                it.filters = arrayOf(EditTextNumberRestrictionFilter(NUMBER_MIN, NUMBER_SERIES_MAX))
+
                 it.addTextChangedListener(object : TextWatcher {
 
                     override fun afterTextChanged(editable: Editable?) {
-                        val value = it.text.toString()
+                        val seriesInputValue = it.text.toString()
 
-                        if (value.isNotBlank()) {
-                            series = value.toLong()
+                        if (seriesInputValue.isNotBlank()) {
+                            series = seriesInputValue.toInt()
                         } else {
-                            series = 1
+                            series = NUMBER_MIN
                         }
                         view?.let {
                             updateContainer(it)
@@ -63,6 +76,24 @@ class StandardRepsFragment : Fragment() {
             }
             it.findViewById<EditText>(R.id.series_reps_reps_input)?.let {
                 it.setText(reps.toString())
+                it.filters = arrayOf(EditTextNumberRestrictionFilter(NUMBER_MIN, NUMBER_REPS_MAX))
+
+                it.addTextChangedListener(object : TextWatcher {
+                    override fun afterTextChanged(s: Editable?) {
+                        val repsInputValue = it.text.toString()
+
+                        if (repsInputValue.isNotBlank()) {
+                            reps = repsInputValue.toInt()
+                            updateValuesInRepsFields()
+                        } else {
+                            reps = NUMBER_MIN
+                        }
+                    }
+
+                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                })
             }
             updateContainer(view)
         }
@@ -98,9 +129,16 @@ class StandardRepsFragment : Fragment() {
         }
     }
 
+    private fun updateValuesInRepsFields() {
+        rows.forEach { row ->
+            val repField = row.findViewWithTag<EditText>("REP_INPUT")
+            repField.setText(reps.toString())
+        }
+    }
+
     private fun createMissingRows(context: Context) {
         if (rows.size < series) {
-            for (index in rows.size..series - 1) {
+            for (index in rows.size..series - NUMBER_MIN) {
                 val rowLayout = LinearLayout(context)
 
                 rowLayout.layoutParams =
@@ -109,18 +147,21 @@ class StandardRepsFragment : Fragment() {
                 rowLayout.orientation = LinearLayout.HORIZONTAL
 
                 val label: TextView = textView(
-                    "Series ${index + 1}", 24f, resources.getColor(R.color.inputFieldWhite), 150, 90, context
+                    "Series ${index + NUMBER_MIN}",
+                    INPUT_TEXT_SIZE, resources.getColor(R.color.inputFieldWhite), INPUT_SERIES_LABEL_WIDTH,
+                    INPUT_LABEL_HEIGHT, context
                 )
 
                 val repsInput = editText(
-                    24f,
+                    INPUT_TEXT_SIZE,
                     getResources().getColor(R.color.inputFieldWhite),
-                    150,
-                    90,
+                    INPUT_REPS_LABEL_WIDTH,
+                    INPUT_LABEL_HEIGHT,
                     InputType.TYPE_CLASS_NUMBER,
                     context
                 )
                 repsInput.setText(reps.toString())
+                repsInput.filters = arrayOf(EditTextNumberRestrictionFilter(NUMBER_MIN, 99))
 
                 rowLayout.addView(label)
                 rowLayout.addView(repsInput)
