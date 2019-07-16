@@ -71,8 +71,8 @@ class StandardSelectTemplateFragment : Fragment() {
             var selectedBodyType = exerciseBodyTypeSpinnerListener.selectedItem
             var bundle: Bundle = Bundle()
 
-            bundle.putLong("series", selectedTemplate.series)
-            bundle.putLong("reps", selectedTemplate.reps)
+            bundle.putInt("series", selectedTemplate.series)
+            bundle.putInt("reps", selectedTemplate.reps)
             bundle.putLong("bodyTypeId", selectedBodyType.id)
 
             it.findNavController().navigate(R.id.action_to_reps, bundle)

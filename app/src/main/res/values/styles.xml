@@ -90,4 +90,15 @@
         <item name="android:textColor">@color/inputFieldWhite</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <style name="input_field_multiline">
+        <item name="android:fontFamily">@font/armata</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/inputFieldWhite</item>
+        <item name="android:backgroundTint">@color/inputFieldWhite</item>
+        <item name="android:hint">@string/placeholder_exercise_name</item>
+        <item name="android:background">@drawable/multiline_border</item>
+    </style>
 </resources>

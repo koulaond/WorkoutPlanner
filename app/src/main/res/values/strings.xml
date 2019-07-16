@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WorkoutPlanner</string>
     <string name="btn_next">NEXT</string>
-    <string name="screen_welcome_title">WORKOUT PLANNER</string>
+    <string name="screen_welcome_title">WORKOUTZ</string>
     <string name="screen_welcome_subtitle">BUILD YOUR OWN TRAININGS</string>
     <string name="screen_welcome_label_menu">MAIN MENU</string>
     <string name="screen_trainings_label_menu">TRAININGS</string>
@@ -47,8 +47,13 @@
     <string name="exercise_screen_standard_reps_num">3</string>
     <string name="exercise_screen_standard_reps_label">DEFINE SERIES AND REPS</string>
 
+    <string name="exercise_screen_standard_info_num">4</string>
+    <string name="exercise_screen_standard_info_label">ADD MORE INFO</string>
+
     <!-- PLACEHOLDERS -->
     <string name="placeholder_exercise_name">EXERCISE NAME</string>
+    <string name="placeholder_exercise_description">ADD DESCRIPTION</string>
+
 
 
     <!-- EXERCISE TEMPLATES -->
