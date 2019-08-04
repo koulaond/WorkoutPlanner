@@ -7,20 +7,24 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.workoutplanner.db.dao.ExerciseBodyTypeDao
+import com.example.workoutplanner.db.dao.ExerciseDefinitionDao
 import com.example.workoutplanner.db.dao.TemplateDao
 import com.example.workoutplanner.domain.ExerciseBodyType
+import com.example.workoutplanner.domain.ExerciseDefinition
 import com.example.workoutplanner.domain.Template
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Template::class, ExerciseBodyType::class], version = 1)
+@Database(entities = [Template::class, ExerciseBodyType::class, ExerciseDefinition::class], version = 1)
 @TypeConverters(DatabaseTypeConverters::class)
 abstract class AbstractDatabase : RoomDatabase() {
 
     abstract fun templateDao(): TemplateDao
 
     abstract fun exerciseBodyTypeDao(): ExerciseBodyTypeDao
+
+    abstract fun exerciseDefinitionDao() : ExerciseDefinitionDao
 
     companion object {
         @Volatile

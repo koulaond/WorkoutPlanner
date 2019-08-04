@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">WorkoutPlanner</string>
     <string name="btn_next">NEXT</string>
+    <string name="btn_finish">FINISH</string>
     <string name="screen_welcome_title">WORKOUTZ</string>
     <string name="screen_welcome_subtitle">BUILD YOUR OWN TRAININGS</string>
     <string name="screen_welcome_label_menu">MAIN MENU</string>

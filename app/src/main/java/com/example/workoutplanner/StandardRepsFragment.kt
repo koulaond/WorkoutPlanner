@@ -13,41 +13,52 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.*
 import android.widget.LinearLayout.LayoutParams
+import androidx.lifecycle.ViewModelProviders
+import com.example.workoutplanner.db.AbstractDatabase
+import com.example.workoutplanner.db.dao.ExerciseDefinitionDao
+import com.example.workoutplanner.db.dao.async.InsertAsyncTask
+import com.example.workoutplanner.domain.ExerciseBodyType
+import com.example.workoutplanner.domain.ExerciseDefinition
+import com.example.workoutplanner.domain.Template
 import com.example.workoutplanner.filters.EditTextNumberRestrictionFilter
 import com.example.workoutplanner.utils.ViewFactory.Companion.editText
 import com.example.workoutplanner.utils.ViewFactory.Companion.textView
+import com.example.workoutplanner.view.ExerciseDefinitionViewModel
 
 class StandardRepsFragment : Fragment() {
 
     companion object {
-        private const val REPS = "reps"
-        private const val SERIES = "series"
-        private const val BODY_TYPE_ID = "bodyTypeId"
+        private const val TEMPLATE = "template"
+        private const val BODY_TYPE = "bodyType"
         private const val INPUT_TEXT_SIZE = 24f
         private const val INPUT_SERIES_LABEL_WIDTH = 150
         private const val INPUT_REPS_LABEL_WIDTH = 175
         private const val INPUT_LABEL_HEIGHT = 90
+        private const val NUMBER_MIN = 1
+        private const val NUMBER_SERIES_MAX = 30
+        private const val NUMBER_REPS_MAX = 99
     }
 
-    var reps: Int = 0
-    var series: Int = 0
-    var bodyTypeId: Long = 0
+    private lateinit var exerciseName: String
+    private lateinit var bodyType: ExerciseBodyType
+    private var reps: Int = 0
+    private var series: Int = 0
 
-    var rows: MutableList<LinearLayout> = ArrayList()
-
-    private val NUMBER_MIN = 1
-    private val NUMBER_SERIES_MAX = 30
-    private val NUMBER_REPS_MAX = 99
+    private var rows: MutableList<LinearLayout> = ArrayList()
+    private lateinit var exerciseDefinitionViewModel: ExerciseDefinitionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val viewModelProvider = ViewModelProviders.of(this)
+        exerciseDefinitionViewModel = viewModelProvider.get(ExerciseDefinitionViewModel::class.java)
         arguments?.let {
-
-            reps = it.getInt(REPS)
-            series = it.getInt(SERIES)
-            bodyTypeId = it.getLong(BODY_TYPE_ID)
+            exerciseName = it.getString("exerciseName") as String
+            bodyType = it.getSerializable(BODY_TYPE) as ExerciseBodyType
+            var template = it.getSerializable(TEMPLATE) as Template
+            reps = template.reps
+            series = template.series
         }
 
         val view: View = inflater.inflate(R.layout.fragment_standard_reps, container, false)
@@ -96,9 +107,23 @@ class StandardRepsFragment : Fragment() {
 
                 })
             }
+            it.findViewById<Button>(R.id.btnStandardBasicFinish)?.let { it -> it.setOnClickListener { finish() } }
             updateContainer(view)
         }
         return view
+    }
+
+    private fun finish() {
+        var seriesMap: MutableMap<Int, Int> = HashMap()
+        rows.forEachIndexed { index, row ->
+            run {
+                val input = row.findViewWithTag("REP_INPUT") as EditText
+                val value = input.text.toString()
+                seriesMap.put(index + 1, value.toInt())
+            }
+        }
+        val exerciseDefinition = ExerciseDefinition(null, exerciseName, seriesMap, bodyType.id)
+        exerciseDefinitionViewModel.insert(exerciseDefinition)
     }
 
     private fun updateContainer(view: View) {
@@ -111,7 +136,7 @@ class StandardRepsFragment : Fragment() {
                 layout.orientation = LinearLayout.VERTICAL
 
                 for (index in 0 until series) {
-                    val row = rows.get(index.toInt())
+                    val row = rows.get(index)
 
                     row.parent?.let {
                         val parent = it as ViewGroup

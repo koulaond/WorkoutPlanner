@@ -4,23 +4,24 @@ import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.workoutplanner.db.dao.ExerciseBodyTypeDao
 import com.example.workoutplanner.domain.ExerciseBodyType
+import com.example.workoutplanner.domain.ExerciseBodyTypeAndAllExerciseDefinitions
 
-class ExerciseBodyPartRepository(private val eexeciseBodyPartDao: ExerciseBodyTypeDao) {
+class ExerciseBodyPartRepository(private val execiseBodyPartDao: ExerciseBodyTypeDao) {
 
-    val allExerciseBodyParts: LiveData<Array<ExerciseBodyType>> = eexeciseBodyPartDao.getAllBodyParts()
+    val allExerciseBodyParts: LiveData<Array<ExerciseBodyTypeAndAllExerciseDefinitions>> = execiseBodyPartDao.getAllBodyParts()
 
     @WorkerThread
     fun insert(item: ExerciseBodyType) {
-        eexeciseBodyPartDao.insert(item)
+        execiseBodyPartDao.insert(item)
     }
 
     @WorkerThread
     fun update(item: ExerciseBodyType) {
-        eexeciseBodyPartDao.update(item)
+        execiseBodyPartDao.update(item)
     }
 
     @WorkerThread
     fun delete(item: ExerciseBodyType) {
-        eexeciseBodyPartDao.delete(item)
+        execiseBodyPartDao.delete(item)
     }
 }
