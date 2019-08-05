@@ -122,7 +122,7 @@ class StandardRepsFragment : Fragment() {
         }
         val exerciseDefinition = ExerciseDefinition(null, exerciseName, seriesMap, bodyType.id)
         exerciseDefinitionViewModel.insert(exerciseDefinition)
-        view.findNavController().navigate(R.id.back_to_exercises_navigation)
+        view.findNavController().navigate(R.id.from_create_to_exercises_list_navigation)
     }
 
     private fun updateContainer(view: View) {
