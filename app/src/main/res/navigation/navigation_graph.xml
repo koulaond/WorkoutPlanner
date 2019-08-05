@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_graph"
-            app:startDestination="@+id/selectTypeFragment">
+            app:startDestination="@+id/exercisesFragment">
     <fragment android:id="@+id/selectTypeFragment" android:name="com.example.workoutplanner.SelectTypeFragment"
               android:label="fragment_select_type" tools:layout="@layout/fragment_select_type">
         <action android:id="@+id/action_to_basic_info"
@@ -35,5 +35,12 @@
         <argument android:name="template" app:argType="com.example.workoutplanner.domain.Template"/>
         <argument android:name="bodyType" app:argType="com.example.workoutplanner.domain.ExerciseBodyType"/>
         <argument android:name="exerciseName" app:argType="string"/>
+        <action android:id="@+id/back_to_exercises_navigation"
+                app:destination="@id/exercisesFragment"/>
+    </fragment>
+    <fragment android:id="@+id/exercisesFragment" android:name="com.example.workoutplanner.ExercisesFragment"
+              android:label="fragment_exercises" tools:layout="@layout/fragment_exercises">
+        <action android:id="@+id/action_to_select_exercise_type"
+                app:destination="@id/selectTypeFragment"/>
     </fragment>
 </navigation>

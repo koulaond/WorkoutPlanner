@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +12,9 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.*
 import android.widget.LinearLayout.LayoutParams
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.example.workoutplanner.db.AbstractDatabase
-import com.example.workoutplanner.db.dao.ExerciseDefinitionDao
-import com.example.workoutplanner.db.dao.async.InsertAsyncTask
+import androidx.navigation.findNavController
 import com.example.workoutplanner.domain.ExerciseBodyType
 import com.example.workoutplanner.domain.ExerciseDefinition
 import com.example.workoutplanner.domain.Template
@@ -107,13 +105,13 @@ class StandardRepsFragment : Fragment() {
 
                 })
             }
-            it.findViewById<Button>(R.id.btnStandardBasicFinish)?.let { it -> it.setOnClickListener { finish() } }
+            it.findViewById<Button>(R.id.btnStandardBasicFinish)?.let { it -> it.setOnClickListener { finish(view) } }
             updateContainer(view)
         }
         return view
     }
 
-    private fun finish() {
+    private fun finish(view: View) {
         var seriesMap: MutableMap<Int, Int> = HashMap()
         rows.forEachIndexed { index, row ->
             run {
@@ -124,6 +122,7 @@ class StandardRepsFragment : Fragment() {
         }
         val exerciseDefinition = ExerciseDefinition(null, exerciseName, seriesMap, bodyType.id)
         exerciseDefinitionViewModel.insert(exerciseDefinition)
+        view.findNavController().navigate(R.id.back_to_exercises_navigation)
     }
 
     private fun updateContainer(view: View) {

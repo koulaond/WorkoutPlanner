@@ -56,7 +56,6 @@
     <string name="placeholder_exercise_description">ADD DESCRIPTION</string>
 
 
-
     <!-- EXERCISE TEMPLATES -->
     <string-array name="exerciseTemplates">
         <item>SELECT TEMPLATE</item>
