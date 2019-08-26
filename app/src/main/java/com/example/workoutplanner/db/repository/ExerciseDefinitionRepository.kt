@@ -13,7 +13,7 @@ class ExerciseDefinitionRepository(private val exerciseDefinitionDao: ExerciseDe
 
     @WorkerThread
     fun insert(item: ExerciseDefinition) {
-        insertAsyncTask.execute()
+        insertAsyncTask.execute(item)
     }
 
     @WorkerThread
